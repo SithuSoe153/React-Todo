@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DataServices from "../services/data-services";
 
-export default function TodoForm() {
+export default function TodoForm({ setTodos, todos }) {
   let dataService = new DataServices();
   let [formData, setFormData] = useState({
     title: "",
@@ -25,6 +25,10 @@ export default function TodoForm() {
     //   ...prevState,
     //   setFormData,
     // }));
+    setTodos((prevState) => ({
+      ...prevState,
+      todos,
+    }));
 
     setFormData({
       title: "",
